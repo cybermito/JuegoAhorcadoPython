@@ -2,6 +2,7 @@
 import random
 
 #Una variable en mayúsculas es una variable constante.
+#Aquí creamos las imagenes para el juego en modo terminal. Es una lista que contiene cada una de las imagénes realizadas en ASCII.
 IMAGES = ['''
 
     +---+
@@ -69,14 +70,15 @@ IMAGES = ['''
         =========''', '''
 ''']
 
+#Creamos una lista de palabras que el programa escogerá aleatoriamente para que la adivinemos.
 WORDS = ["lavadora", "secadora", "sofa", "covid19", "coronavirus", "ordenador", "python", "teclado"]
 
 
-def random_word():
+def random_word(): #Función que selecciona el indice de la lista WORDS que contiene la palabra a adivinar.
     idx = random.randint(0, len(WORDS)-1)
     return WORDS[idx]
 
-def display_board(hidden_word, tries):
+def display_board(hidden_word, tries): #Nos dibuja en pantalla el tamaño de la palabra a adivinar.
     print(IMAGES[tries])
     print("")
     print(hidden_word)
@@ -84,7 +86,7 @@ def display_board(hidden_word, tries):
 
 
 
-def run():
+def run(): #Ejecución del programa principal.
     word = random_word()
     hidden_word = ['_'] * len(word)
     tries = 0
